@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 var Op = models.Sequelize.Op
+var { jwtCheck } = require('../utils/jwt')
+
 // 查询全部文章 Promise 写法
 // router.get('/', function(req, res, next) {
 // 	models.Article.findAll().then(articles => {
@@ -10,7 +12,7 @@ var Op = models.Sequelize.Op
 // })
 
 // 查询全部文章  async/await
-router.get('/', async function (req, res, next) {
+router.get('/', jwtCheck, async function (req, res, next) {
 	// 搜索
 	var where = {};
 
@@ -50,7 +52,7 @@ router.post('/create', async function (req, res, next) {
 });
 
 // 查询接口， URL: articles/id
-router.get('/:id', async function (req, res, next) {
+router.get('/:id', jwtCheck, async function (req, res, next) {
 	var article = await models.Article.findOne({
 		where: {id: req.params.id},
 		include: [models.Comment],

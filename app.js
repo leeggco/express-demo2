@@ -43,6 +43,8 @@ app.use('/articles', articlesRouter);
 app.use('/create', articlesRouter);
 // 需定义才能访问路由，并且url的格式是：/users/about
 app.use('/about', usersRouter);
+app.use('/register', usersRouter);
+app.use('/login', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
