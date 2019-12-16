@@ -3,7 +3,8 @@ const jwt = require('jsonwebtoken')
 const jwtKey = 'junkaicool' // token生成的密匙，根据自己需求定义
 
 const jwtSign = (data) => { // token生成函数，有效时间为一个小时
-  const token = jwt.sign(data, jwtKey, {expiresIn: 60 * 60})
+//   const token = jwt.sign(data, jwtKey, {expiresIn: 60 * 60})
+  const token = jwt.sign(data, jwtKey, {expiresIn: 60})
   return token
 }
 
