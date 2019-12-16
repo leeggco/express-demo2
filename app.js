@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var articlesRouter = require('./routes/articles');
 // 可配置的中間件
 var mw = require('./public/javascripts/my-middleware')
 
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/articles', articlesRouter);
 // 需定义才能访问路由，并且url的格式是：/users/about
 app.use('/about', usersRouter);
 
