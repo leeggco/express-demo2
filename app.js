@@ -40,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/articles', articlesRouter);
+app.use('/create', articlesRouter);
 // 需定义才能访问路由，并且url的格式是：/users/about
 app.use('/about', usersRouter);
 
