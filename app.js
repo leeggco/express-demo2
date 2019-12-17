@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var articlesRouter = require('./routes/articles');
+var flowRouter = require('./routes/flow');
 // 可配置的中間件
 var mw = require('./public/javascripts/my-middleware')
 
@@ -45,6 +46,7 @@ app.use('/create', articlesRouter);
 app.use('/about', usersRouter);
 app.use('/register', usersRouter);
 app.use('/login', usersRouter);
+app.use('/flow', flowRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -40,7 +40,7 @@ router.post('/login', async function (req, res, next) {
 
   if (!user) {
     res.status(422).send({
-      message: '用户名不存在'
+      message: '用户名不存在！'
     })
   } else {
     //  bcrypt.compareSync 解密匹配，返回 boolean 值
@@ -50,7 +50,7 @@ router.post('/login', async function (req, res, next) {
     )
     if (!isPasswordValid) {
       return res.status(422).send({
-        message: '密码无效'
+        message: '密码无效！'
       })
     } else {
       const token = jwtSign({ id: user.id}) // 用引入的jwtSign方法生成token并返回
