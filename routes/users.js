@@ -39,7 +39,7 @@ router.post('/login', async function (req, res, next) {
   })
 
   if (!user) {
-    res.status(422).send({
+    res.send({
       message: '用户名不存在！'
     })
   } else {
@@ -49,12 +49,12 @@ router.post('/login', async function (req, res, next) {
       user.password
     )
     if (!isPasswordValid) {
-      return res.status(422).send({
+      return res.send({
         message: '密码无效！'
       })
     } else {
       const token = jwtSign({ id: user.id}) // 用引入的jwtSign方法生成token并返回
-      return res.status(422).send({
+      return res.send({
         data: user,
         token: token,
         message: '密码正确，登录成功！'

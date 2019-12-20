@@ -10,10 +10,10 @@ var pushDomain = 'push.leeggco.com'
 var playDomain = 'play.leeggco.com'
 var secretKey = '69e0daf7234b01f257a7adb9f807ae9f'
 var streamName = 123456
-var time = '2019年12月18日 15:45:33'
+var time = '2019年12月28日 15:45:33'
 // 插入数据，模拟请求记得使用post
 router.post('/getPushUrl', async function (req, res, next) {
-	var article = req.body;
+	streamName = req.body.username;
 	var flowUrl = printUrls(pushDomain, streamName, secretKey, time);
 	res.json({ data: flowUrl });
 });
