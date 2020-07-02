@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken')
 
-const jwtKey = 'tokenKey' // token生成的密匙，根据自己需求定义
+const jwtKey = 'fsaklj342@313l@$!@$kjasi34' // token生成的密匙，根据自己需求定义
 
 const jwtSign = (data) => { // token生成函数，有效时间为一个小时
-//   const token = jwt.sign(data, jwtKey, {expiresIn: 60 * 60})
-  const token = jwt.sign(data, jwtKey, {expiresIn: 60})
+  //   const token = jwt.sign(data, jwtKey, {expiresIn: 60 * 60})
+  const token = jwt.sign(data, jwtKey, { expiresIn: 60 * 60 * 24 * 30 })
   return token
 }
 

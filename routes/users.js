@@ -40,6 +40,7 @@ router.post('/login', async function (req, res, next) {
 
   if (!user) {
     res.send({
+      success: false,
       message: '用户名不存在！'
     })
   } else {
@@ -50,6 +51,7 @@ router.post('/login', async function (req, res, next) {
     )
     if (!isPasswordValid) {
       return res.send({
+        success: false,
         message: '密码无效！'
       })
     } else {
@@ -57,6 +59,7 @@ router.post('/login', async function (req, res, next) {
       return res.send({
         data: user,
         token: token,
+        success: true,
         message: '密码正确，登录成功！'
       })
     }
